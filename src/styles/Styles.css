@@ -1,0 +1,90 @@
+.app {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+.header {
+  background-color: #c2dd29;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+.header button {
+  padding: 2vh 5vh;
+  font-weight: bold;
+  font-size: medium;
+  background-color: darkseagreen;
+  cursor: pointer;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} 
+
+.nav {
+  margin: 10vh 30vh;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly; 
+  background-color: #282c34;
+  color: white;
+}
+
+.nav li {
+  padding: 5vh;
+}
+
+.nav li a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5vh;
+}
+
+.nav li a:hover {
+  color: orange;
+  background-color: rgb(70, 70, 70);
+}
+
+.things-list {
+  margin: 0vh 30vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.things-list div {
+  width: 25%;
+  margin-bottom: 5vh;
+}
+
+.thing img {
+  width: 18vh;
+}
+
+.footer {
+  background-color: #c2dd29;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 5vh;
+}
+
+.footer span {
+  margin-right: 5vh;
+}
