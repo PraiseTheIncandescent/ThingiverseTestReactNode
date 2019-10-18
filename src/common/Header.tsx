@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
             <span>Thingiverse App Using Node/React</span>
             {!bearer
                 ? <Link to="/login"><button>Login</button></Link>
-                : <button onClick={logout}>Logout</button>
+                : <Link onClick={logout} to="/"><button>Logout</button></Link>
             }
         </header>
     );

@@ -1,8 +1,11 @@
 import { ICreator } from "./ICreator";
 
-export interface IThing {
+export interface IThingDetail {
     id: number;
     name: string;
     thumbnail: string;
     creator: ICreator;
+    description: string;
+    license: string;
+    view_count: number;
 }

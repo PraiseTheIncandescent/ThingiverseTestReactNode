@@ -1,4 +1,6 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 import { Thing } from './Thing';
 import { IThing } from '../models/IThing';
 
@@ -6,21 +8,36 @@ interface IThingListProps {
     type: string;
 }
 
-export const ThingsList: React.FC<IThingListProps> = ({type}) => {
+interface IThingTypes {
+    newest?: IThing[];
+    popular?: IThing[];
+    featured?: IThing[];
+    verified?: IThing[];
+}
 
-    const img = 'http://www.penguinworld.com/rw_common/images/King.jpeg';
+export const ThingsList: React.FC<IThingListProps> = ({ type }) => {
 
-    const data: IThing[] = [
-        { key: 1, name: 'name1', type: 1, img },
-        { key: 2, name: 'name2', type: 2, img },
-        { key: 3, name: 'name3', type: 3, img },
-        { key: 4, name: 'name4', type: 4, img },
-        { key: 5, name: 'Megaman', type: 5, img }
-    ];
+    const { loading, data } = useQuery<IThingTypes>(gql`
+    {
+      ${type} {
+          id
+          name
+          thumbnail
+          creator {
+            name
+            first_name
+            last_name
+            thumbnail
+          }
+        }
+      }
+  `);
 
-    return (
-        <div className="things-list">
-            {data.map(d => <Thing key={d.key} name={d.name} type={d.type} img={d.img} test={type} />)}
-        </div>
-    )
+    return loading
+        ? <div>Loading..</div>
+        : (
+            <div className="things-list">
+                {data[type].map(thing => <Thing key={thing.id} data={thing} />)}
+            </div>
+        );
 }

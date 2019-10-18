@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Nav } from './Nav';
 import { ThingsList } from './ThingsList';
+import { ThingDetail } from './ThingDetail';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Switch, Route, Redirect } from 'react-router';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -22,7 +23,7 @@ const apolloClient = new ApolloClient({
 export const Container: React.FC = () => {
 
     const [type, setType] = useState(
-        'latest'
+        'newest'
     );
 
     const switchType = (type: string) => {
@@ -30,7 +31,7 @@ export const Container: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             <BrowserRouter>
                 <AuthProvider>
                     <AuthContext.Consumer>
@@ -39,9 +40,10 @@ export const Container: React.FC = () => {
                                 <Header />
                                 <Nav onSwitchType={(type: string) => switchType(type)} />
                                 <Switch>
-                                    <Route exact path="/" render={() => bearer ? <Redirect to={`/things/${type}`} /> : 'HEY YOU, PRESS LOGIN!'} />
+                                    <Route exact path="/" render={() => bearer ? <Redirect to={`/things/${type}`} /> : 'You must be logged in to see "things"'} />
                                     <Route path="/login" component={Login} />
                                     <ProtectedRoute path={`/things/${type}`} component={() => <ThingsList type={type} />} />
+                                    <ProtectedRoute path="/things/:id" component={ThingDetail} />
                                     <Route path="*" render={() => 'NOT FOUND'} />
                                 </Switch>
                             </ApolloProvider>

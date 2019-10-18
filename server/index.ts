@@ -34,8 +34,6 @@ server.applyMiddleware({ app, path: '/graphql' });
 
 // Get token with params in .env
 app.post('/auth', (req, res) => {
-  console.warn('uhh');
-
   axios.request({
     method: 'POST',
     url: 'https://www.thingiverse.com/login/oauth/access_token',

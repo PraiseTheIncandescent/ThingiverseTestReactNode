@@ -3,6 +3,10 @@
   font-family: Georgia, serif;
 }
 
+.container {
+  min-height: 160vh;
+}
+
 .header {
   background-color: #c2dd29;
   display: flex;
@@ -20,16 +24,6 @@
   background-color: darkseagreen;
   cursor: pointer;
 }
-
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} 
 
 .nav {
   margin: 10vh 30vh;
@@ -59,7 +53,7 @@
 .things-list {
   margin: 0vh 30vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -71,6 +65,16 @@
 
 .thing img {
   width: 18vh;
+}
+
+.thing-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thing-detail img {
+  width: 28vh;
 }
 
 .footer {
@@ -87,4 +91,8 @@
 
 .footer span {
   margin-right: 5vh;
+}
+
+.w-md {
+  width: 50%;
 }
