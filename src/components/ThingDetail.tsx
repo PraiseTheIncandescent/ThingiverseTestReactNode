@@ -40,6 +40,9 @@ export const ThingDetail: React.FC<RouteComponentProps<{ id: string }>> = props 
           ? `${data.thing.creator.first_name} ${data.thing.creator.last_name}`
           : data.thing.creator.name}
         </p>
+        <p>
+          <strong>Creator icon:</strong> <img className="icon" src={data.thing.creator.thumbnail} alt={data.thing.creator.thumbnail}/>
+        </p>
         <p className="w-md"><strong>Description:</strong> {data.thing.description}</p>
         <p><strong>License:</strong> {data.thing.license}</p>
       </div>

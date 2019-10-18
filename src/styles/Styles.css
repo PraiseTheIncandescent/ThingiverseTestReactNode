@@ -73,7 +73,7 @@
   align-items: center;
 }
 
-.thing-detail img {
+.thing-detail>img {
   width: 28vh;
 }
 
@@ -91,6 +91,10 @@
 
 .footer span {
   margin-right: 5vh;
+}
+
+.icon {
+  width: 5vh;
 }
 
 .w-md {
