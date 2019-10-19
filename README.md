@@ -2,4 +2,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to start project
 npm run build
+
 npm run start
